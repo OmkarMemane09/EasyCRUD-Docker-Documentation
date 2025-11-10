@@ -15,25 +15,23 @@ Architecture components:
 ##  Architecture Diagram
 
 ```bash
-               ┌────────────────────────┐
-               │        Frontend        │
-               │   (React)      │
-               │  Container : Port 80    │
-               └─────────────┬──────────┘
-                             │
-                             ▼
-               ┌────────────────────────┐
-               │        Backend         │
-               │ (Java + Maven + JAR)   │
-               │  Container : Port 8080 │
-               └─────────────┬──────────┘
-                             │
-                             ▼
-               ┌────────────────────────┐
-               │        Database        │
-               │    (MySQL/MariaDB)     │
-               │  Container : Port 3306 │
-               └────────────────────────┘
+                      ┌────────────────────────────────────────┐
+                      │              AWS EC2 Server            │
+                      │        (Docker Engine Installed)       │
+                      └────────────────────────────────────────┘
+                                       │
+     ┌─────────────────────────────────┼───────────────────────────────────┐
+     │                                 │                                   │
+     ▼                                 ▼                                   ▼
+
+┌────────────────────┐        ┌────────────────────────┐        ┌────────────────────────┐
+│   Frontend Tier    │        │    Backend Tier         │        │    Database Tier       │
+│  React/Node + npm  │        │ Spring Boot (Java/Mvn) │        │   MySQL / MariaDB      │
+│  Docker Container  │        │   Docker Container      │        │   Docker Container     │
+│  Port: **80**      │  --->  │   Port: **8080**        │  --->  │   Port: **3306**       │
+└────────────────────┘        └────────────────────────┘        └────────────────────────┘
+
+
 ```
 
 ---
@@ -150,6 +148,8 @@ docker build -t backend-app .
 ```bash
 docker run -d -p 8080:8080 backend-app
 ```
+---
+
 ###  C. Frontend Deployment (React.js + Apache)
 
 #### 1️⃣ Update .env
