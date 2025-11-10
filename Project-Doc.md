@@ -11,6 +11,7 @@ Architecture components:
 
 ---
 
+
 ## 🏗️ Architecture Diagram
 
 ```bash
@@ -58,6 +59,9 @@ Architecture components:
 ---
 
 # 🗄️ A. Database Setup (MySQL / MariaDB)
+
+<img width="1905" height="820" alt="Screenshot 2025-11-05 204035" src="https://github.com/user-attachments/assets/4692ce52-624f-4d93-8f48-b5077498d41d" />
+
 ```bash
 ### 1️⃣ Run MySQL container
 docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<your_password> mysql
@@ -143,12 +147,16 @@ docker build -t frontend-app .
 4️⃣ Run frontend container
 docker run -d -p 80:80 frontend-app
 ```
+<img width="1694" height="328" alt="Screenshot 2025-11-05 203026" src="https://github.com/user-attachments/assets/4c72d945-cfbd-498e-837e-5b69534a15ca" />
 
 ### 🎉 Final Step
 ```bash
 Open your browser and visit:
 http://<YOUR_EC2_PUBLIC_IP>
 You should now see your website live! 🎉
+
 ```
+<img width="1905" height="1011" alt="Screenshot 2025-11-05 202951" src="https://github.com/user-attachments/assets/0c5709a0-835a-4fed-9b0a-8fb22ee4198d" />
 ---
+<img width="1486" height="420" alt="Screenshot 2025-11-05 203849" src="https://github.com/user-attachments/assets/ff4cc41f-c2a6-482e-bd3d-65b325188665" />
 
