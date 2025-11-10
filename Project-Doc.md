@@ -62,14 +62,15 @@ Architecture components:
 
 <img width="1905" height="820" alt="Screenshot 2025-11-05 204035" src="https://github.com/user-attachments/assets/4692ce52-624f-4d93-8f48-b5077498d41d" />
 
-
-#### 1️⃣ Run MySQL container
+#### 1️⃣ install mysql-client
 ```bash
-docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<your_password> mysql
+apt install mysql-client -y
 ```
-#### 2️⃣ Enter inside database container
+#### 2️⃣login to mysql and connect the database
 ```bash
-docker exec -it <container_id> bash
+mysql -h (endpoint ) -u admin -p
+mysql -h database-1.cxaywyasm64g.ap-southeast-2.rds.amazonaws.com -u admin -p
+enter the root password :
 ```
 #### 3️⃣ Login to MySQL
 ```bash
@@ -78,8 +79,11 @@ mysql -u root -p
 #### 4️⃣ Create database
 ```bash
 CREATE DATABASE student_db;
+
 GRANT ALL PRIVILEGES ON springbackend.* TO 'username'@'localhost' IDENTIFIED BY 'your_password';
+
 USE student_db;
+
 CREATE TABLE `students` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
@@ -91,6 +95,8 @@ CREATE TABLE `students` (
   `mobile_number` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+exit;
 ```
 #### 5️⃣ Backend connection details
 ```bash
@@ -100,6 +106,8 @@ DB_PORT=3306
 DB_NAME=student_db
 DB_HOST=<database_container_ip>
 ```
+---
+
 ### ⚙️ B. Backend Configuration (Java + Maven)
 
 #### 1️⃣ Clone project repository
@@ -109,8 +117,10 @@ cd EasyCRUD/backend
 ```
 #### 2️⃣ Update application.properties
 ```bash
+
 Copy and edit:
 cp src/main/resources/application.properties ./application.properties
+
 vim application.properties
 ```
 Update values:
@@ -144,7 +154,9 @@ docker run -d -p 8080:8080 backend-app
 
 #### 1️⃣ Update .env
 ```bash
+
 cd EasyCRUD/frontend
+
 vim .env
 
 Set:
