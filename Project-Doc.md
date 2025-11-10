@@ -1,6 +1,6 @@
-# 🚀 Multi-Tier Docker Deployment – Frontend | Backend | Database
+#  Multi-Tier Docker Deployment – Frontend | Backend | Database
 
-## 📌 Project Overview
+##  Project Overview
 This project demonstrates deployment of a complete **3-tier application** using Docker containers on a single AWS EC2 instance.
 
 Architecture components:
@@ -12,7 +12,7 @@ Architecture components:
 ---
 
 
-## 🏗️ Architecture Diagram
+##  Architecture Diagram
 
 ```bash
                ┌────────────────────────┐
@@ -38,7 +38,7 @@ Architecture components:
 
 ---
 
-## 🧰 Tech Stack
+##  Tech Stack
 
 | Layer     | Technology |
 |-----------|------------|
@@ -58,7 +58,7 @@ Architecture components:
 
 ---
 
-# 🗄️ A. Database Setup (MySQL / MariaDB)
+#  A. Database Setup (MySQL / MariaDB)
 
 <img width="1905" height="820" alt="Screenshot 2025-11-05 204035" src="https://github.com/user-attachments/assets/4692ce52-624f-4d93-8f48-b5077498d41d" />
 
@@ -116,7 +116,7 @@ docker build -t backend-app .
 5️⃣ Run backend container
 docker run -d -p 8080:8080 backend-app
 ```
-## 🌐 C. Frontend Deployment (Node.js + Apache)
+##  C. Frontend Deployment (Node.js + Apache)
 ```bash
 1️⃣ Update .env
 cd EasyCRUD/frontend
@@ -149,7 +149,7 @@ docker run -d -p 80:80 frontend-app
 ```
 <img width="1694" height="328" alt="Screenshot 2025-11-05 203026" src="https://github.com/user-attachments/assets/4c72d945-cfbd-498e-837e-5b69534a15ca" />
 
-### 🎉 Final Step
+###  Final Step
 ```bash
 Open your browser and visit:
 http://<YOUR_EC2_PUBLIC_IP>
