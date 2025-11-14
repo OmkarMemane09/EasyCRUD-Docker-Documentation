@@ -118,7 +118,7 @@ cd EasyCRUD/backend
 ```bash
 
 Copy and edit:
-cp src/main/resources/application.properties ./application.properties
+cp src/main/resources/application.properties .
 
 vim application.properties
 ```
@@ -135,7 +135,8 @@ Set correct DB username & password
 FROM maven:3.8.3-openjdk-17
 COPY . /opt/
 WORKDIR /opt
-COPY application.properties src/main/resources/application.properties
+RUN rm -rf src/main/resources/application.properties
+RUN cp application.properties src/main/resources/
 RUN mvn clean package
 WORKDIR /opt/target
 EXPOSE 8080
@@ -143,7 +144,7 @@ CMD ["java","-jar","student-registration-backend-0.0.1-SNAPSHOT.jar"]
 ```
 #### 4️⃣ Build backend image
 ```bash
-docker build -t backend-app .
+docker build . -t backend-app 
 ```
 #### 5️⃣ Run backend container
 ```bash
@@ -168,13 +169,15 @@ VITE_API_BASE_URL=http://<EC2_PUBLIC_IP>:8080
 #### 2️⃣ Frontend Dockerfile
 
 *Create frontend/Dockerfile:*
+
+nano dockerfile
+
 ```bash
 FROM node:24-alpine
-COPY . /opt/
+COPY . /opt
 WORKDIR /opt
 RUN npm install && npm run build
 RUN apk update && apk add apache2
-RUN rm -rf /var/www/localhost/htdocs/*
 RUN cp -rf dist/* /var/www/localhost/htdocs/
 EXPOSE 80
 CMD ["httpd", "-D", "FOREGROUND"]
@@ -182,7 +185,7 @@ CMD ["httpd", "-D", "FOREGROUND"]
 
 #### 3️⃣ Build frontend image
 ```bash
-docker build -t frontend-app .
+docker build . -t frontend-app 
 ```
 #### 4️⃣ Run frontend container
 ```bash
