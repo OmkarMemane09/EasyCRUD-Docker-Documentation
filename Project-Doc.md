@@ -60,8 +60,9 @@ Architecture components:
 
 <img width="1905" height="820" alt="Screenshot 2025-11-05 204035" src="https://github.com/user-attachments/assets/4692ce52-624f-4d93-8f48-b5077498d41d" />
 
-#### 1️⃣ install mysql-client
+#### 1️⃣ install mysql-client and docker 
 ```bash
+apt install docker.io
 apt install mysql-client -y
 ```
 #### 2️⃣login to mysql and connect the database
