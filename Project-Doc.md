@@ -1,4 +1,4 @@
-#  Hosting Multi-Tier Docker Deployment – Frontend | Backend | Database
+# 🐳 End-to-End Dockerized 3-Tier Application Documentation – DB | BE | FE
 
 ##  Project Overview
 This project demonstrates deployment of a complete **3-tier application** using Docker containers on a single AWS EC2 instance.
