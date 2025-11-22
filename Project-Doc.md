@@ -115,6 +115,11 @@ Set correct DB username & password
 
 **Create backend/Dockerfile:**
 ```bash
+nano dockerfile
+```
+**Content for backend dockerfile**
+
+```bash
 FROM maven:3.8.3-openjdk-17
 COPY . /opt/
 WORKDIR /opt
@@ -155,6 +160,7 @@ VITE_API_BASE_URL=http://<EC2_PUBLIC_IP>:8080
 ```bash
 nano dockerfile
 ```
+**Content For frontend dockerfile**
 ```bash
 FROM node:24-alpine
 COPY . /opt
