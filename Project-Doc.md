@@ -21,7 +21,7 @@ Architecture components:
 
 | Layer     | Technology |
 |-----------|------------|
-| Frontend  | React |
+| Frontend  | Node/NPM |
 | Backend   | Java, Maven |
 | Database  | MySQL / MariaDB |
 | Hosting   | AWS EC2 (t2.medium) |
@@ -41,21 +41,20 @@ Architecture components:
 
 <img width="1905" height="820" alt="Screenshot 2025-11-05 204035" src="https://github.com/user-attachments/assets/4692ce52-624f-4d93-8f48-b5077498d41d" />
 
-#### 1️⃣ install mysql-client and docker 
+#### 1️⃣ install  docker 
 ```bash
 apt install docker.io
-apt install mysql-client -y
 ```
-#### 2️⃣login to mysql and connect the database
+#### 2️⃣install mysql-client
 ```bash
-mysql -h (endpoint ) -u admin -p
-mysql -h database-1.cxaywyasm64g.ap-southeast-2.rds.amazonaws.com -u admin -p
-enter the root password :
+apt install mysql-client -y
 ```
 #### 3️⃣ Login to MySQL
 ```bash
-mysql -u root -p
+mysql -h (endpoint ) -u admin -p
 ```
+enter the root password :
+
 #### 4️⃣ Create database
 ```bash
 CREATE DATABASE student_db;
@@ -93,17 +92,20 @@ DB_HOST=<database_container_ip>
 #### 1️⃣ Clone project repository
 ```sql
 git clone <your_repo_url>
+```
+```bash
 cd EasyCRUD/backend
 ```
 #### 2️⃣ Update application.properties
+
+**Copy and edit:**
 ```bash
-
-Copy and edit:
 cp src/main/resources/application.properties .
-
+```
+```bash
 vim application.properties
 ```
-Update values:
+**Update values:**
 Replace localhost with DB container IP
 Set correct DB username & password
 
@@ -111,7 +113,7 @@ Set correct DB username & password
 
 #### 3️⃣ Backend Dockerfile
 
-*Create backend/Dockerfile:*
+**Create backend/Dockerfile:**
 ```bash
 FROM maven:3.8.3-openjdk-17
 COPY . /opt/
@@ -137,22 +139,22 @@ docker run -d -p 8080:8080 backend-app
 
 #### 1️⃣ Update .env
 ```bash
-
 cd EasyCRUD/frontend
-
-vim .env
-
-Set:
-VITE_API_BASE_URL=http://<EC2_PUBLIC_IP>:8080
 ```
+```bash
+vim .env
+```
+**Set:**
+VITE_API_BASE_URL=http://<EC2_PUBLIC_IP>:8080
+
 <img width="426" height="117" alt="image" src="https://github.com/user-attachments/assets/0503eb82-d974-46e5-8d84-c8bfe4a29576" />
 
 #### 2️⃣ Frontend Dockerfile
 
-*Create frontend/Dockerfile:*
-
+**Create frontend/Dockerfile:**
+```bash
 nano dockerfile
-
+```
 ```bash
 FROM node:24-alpine
 COPY . /opt
@@ -187,20 +189,21 @@ You should now see your website live! 🎉
 
 ## To see data that saved in database
 
+**🔍 1. See All Databases**
 ```bash
-
-🔍 1. See All Databases
 SHOW DATABASES;
-
-🔍 2. Select Your Database
+```
+**🔍 2. Select Your Database**
+```bash
 USE student_db;
-
-🔍 3. See All Tables
+```
+**🔍 3. See All Tables**
+```bash
 SHOW TABLES;
-
-🔍 4. View All Data in a Table
+```
+**🔍 4. View All Data in a Table**
+```bash
 SELECT * FROM users;
-
 ```
 <img width="1486" height="420" alt="Screenshot 2025-11-05 203849" src="https://github.com/user-attachments/assets/ff4cc41f-c2a6-482e-bd3d-65b325188665" />
 
