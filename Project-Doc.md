@@ -1,4 +1,17 @@
-# 🐳 End-to-End Dockerized 3-Tier Application Documentation – DB | BE | FE
+<h1 align="center">
+  <svg width="100%" height="80">
+    <defs>
+      <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#1f6feb;" />
+        <stop offset="100%" style="stop-color:#00c9a7;" />
+      </linearGradient>
+    </defs>
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+      style="font-size:40px; fill:url(#grad);">
+      🐳 Docker Multi-Tier Deployment
+    </text>
+  </svg>
+</h1>
 
 ##  Project Overview
 This project demonstrates deployment of a complete **3-tier application** using Docker containers on a single AWS EC2 instance.
