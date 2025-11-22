@@ -4,7 +4,7 @@
 This project demonstrates deployment of a complete **3-tier application** using Docker containers on a single AWS EC2 instance.
 
 Architecture components:
-- **Frontend** → React.js  
+- **Frontend** → Node/NPM 
 - **Backend** → Java + Maven  
 - **Database** → MySQL / MariaDB  
 - **Hosting** → AWS EC2 (t2.medium)
@@ -13,26 +13,7 @@ Architecture components:
 
 
 ##  Architecture Diagram
-
-```bash
-                      ┌────────────────────────────────────────┐
-                      │              AWS EC2 Server            │
-                      │        (Docker Engine Installed)       │
-                      └────────────────────────────────────────┘
-                                       │
-     ┌─────────────────────────────────┼───────────────────────────────────┐
-     │                                 │                                   │
-     ▼                                 ▼                                   ▼
-
-┌────────────────────┐        ┌────────────────────────┐        ┌────────────────────────┐
-│   Frontend Tier    │        │    Backend Tier         │        │    Database Tier       │
-│  React/Node + npm  │        │ Spring Boot (Java/Mvn) │        │   MySQL / MariaDB      │
-│  Docker Container  │        │   Docker Container      │        │   Docker Container     │
-│  Port: **80**      │  --->  │   Port: **8080**        │  --->  │   Port: **3306**       │
-└────────────────────┘        └────────────────────────┘        └────────────────────────┘
-
-
-```
+<img width="1000" height="563" alt="image" src="https://github.com/user-attachments/assets/3662094b-1aad-43ef-9661-1cb2ac77ee3e" />
 
 ---
 
