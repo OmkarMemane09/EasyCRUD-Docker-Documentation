@@ -232,43 +232,40 @@ SELECT * FROM users;
 Follow these steps to upload your Docker images to Docker Hub so you can access them from anywhere.  
 **Replace `<your-dockerhub-username>` and `<imagename>` as appropriate.**
 
----
-
 ### 1️⃣ Tag Your Image with Docker Hub Repository Name
 
 **Backend Example:**
+```bash
 docker tag backend-app <your-dockerhub-username>/backend-app:latest
-
-text
+```
 
 **Frontend Example:**
+```bash
 docker tag frontend-app <your-dockerhub-username>/frontend-app:latest
-
-text
-
+```
 ---
 
 ### 2️⃣ Log In to Docker Hub
-
+```bash
 docker login
+```
 
-text
-- Enter your Docker Hub **username** and **password** when prompted.
+*- Enter your Docker Hub **username** and **password** when prompted.*
 
 ---
 
 ### 3️⃣ Push Images to Docker Hub
 
 **Backend:**
+```bash
 docker push <your-dockerhub-username>/backend-app:latest
-
-text
+```
 
 **Frontend:**
+```bash
 docker push <your-dockerhub-username>/frontend-app:latest
 
-text
-
+```
 ---
 
 ### 4️⃣ Verify Your Images on Docker Hub
@@ -279,9 +276,11 @@ text
 
 ---
 
-> Now your Docker images are saved to the cloud and ready to be pulled on any machine with:
-> ```
-> docker pull <your-dockerhub-username>/backend-app:latest
-> docker pull <your-dockerhub-username>/frontend-app:latest
-> ```
+#### Now your Docker images are saved to the cloud and ready to be pulled on any machine with:
+```bash
+docker pull <your-dockerhub-username>/backend-app:latest
+```
+```bash
+docker pull <your-dockerhub-username>/frontend-app:latest
+```
 
