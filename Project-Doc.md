@@ -8,7 +8,7 @@
     </defs>
     <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
       style="font-size:40px; fill:url(#grad);">
-       Docker Multi-Tier Deployment
+       Multi-Tier Deployment By Docker
     </text>
   </svg>
 </h1>
