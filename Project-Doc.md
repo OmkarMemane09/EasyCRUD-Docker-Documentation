@@ -8,7 +8,7 @@
     </defs>
     <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
       style="font-size:40px; fill:url(#grad);">
-      🐳 Docker Multi-Tier Deployment
+       Docker Multi-Tier Deployment
     </text>
   </svg>
 </h1>
@@ -41,7 +41,7 @@ Architecture components:
 
 ---
 
-## ✔️ Prerequisites
+##  Prerequisites
 - AWS EC2 instance  
   - Type: **t2.medium**  
   - Storage: **30GB**  
@@ -54,21 +54,21 @@ Architecture components:
 
 <img width="1905" height="820" alt="Screenshot 2025-11-05 204035" src="https://github.com/user-attachments/assets/4692ce52-624f-4d93-8f48-b5077498d41d" />
 
-#### 1️⃣ install  docker 
+#### 1️. install  docker 
 ```bash
 apt install docker.io
 ```
-#### 2️⃣install mysql-client
+#### 2️. install mysql-client
 ```bash
 apt install mysql-client -y
 ```
-#### 3️⃣ Login to MySQL
+#### 3️. Login to MySQL
 ```bash
 mysql -h (endpoint ) -u admin -p
 ```
 enter the root password :
 
-#### 4️⃣ Create database
+#### 4️. Create database
 ```bash
 CREATE DATABASE student_db;
 
@@ -90,7 +90,7 @@ CREATE TABLE `students` (
 
 exit;
 ```
-#### 5️⃣ Backend connection details
+#### 5️. Backend connection details
 ```bash
 DB_USER=<your_username>
 DB_PASS=<your_password>
@@ -100,16 +100,16 @@ DB_HOST=<database_container_ip>
 ```
 ---
 
-### ⚙️ B. Backend Configuration (Java + Maven)
+###  B. Backend Configuration (Java + Maven)
 
-#### 1️⃣ Clone project repository
+#### 1️. Clone project repository
 ```sql
 git clone <your_repo_url>
 ```
 ```bash
 cd EasyCRUD/backend
 ```
-#### 2️⃣ Update application.properties
+#### 2️. Update application.properties
 
 **Copy and edit:**
 ```bash
@@ -124,7 +124,7 @@ Set correct DB username & password
 
 <img width="867" height="375" alt="image" src="https://github.com/user-attachments/assets/78fc67da-e753-486b-893a-bea91209c8ec" />
 
-#### 3️⃣ Backend Dockerfile
+#### 3️. Backend Dockerfile
 
 **Create backend/Dockerfile:**
 ```bash
@@ -143,11 +143,11 @@ WORKDIR /opt/target
 EXPOSE 8080
 CMD ["java","-jar","student-registration-backend-0.0.1-SNAPSHOT.jar"]
 ```
-#### 4️⃣ Build backend image
+#### 4️. Build backend image
 ```bash
 docker build . -t backend-app 
 ```
-#### 5️⃣ Run backend container
+#### 5️. Run backend container
 ```bash
 docker run -d -p 8080:8080 backend-app
 ```
@@ -155,7 +155,7 @@ docker run -d -p 8080:8080 backend-app
 
 ###  C. Frontend Deployment (React.js + Apache)
 
-#### 1️⃣ Update .env
+#### 1️. Update .env
 ```bash
 cd EasyCRUD/frontend
 ```
@@ -167,7 +167,7 @@ VITE_API_BASE_URL=http://<EC2_PUBLIC_IP>:8080
 
 <img width="426" height="117" alt="image" src="https://github.com/user-attachments/assets/0503eb82-d974-46e5-8d84-c8bfe4a29576" />
 
-#### 2️⃣ Frontend Dockerfile
+#### 2️. Frontend Dockerfile
 
 **Create frontend/Dockerfile:**
 ```bash
@@ -185,11 +185,11 @@ EXPOSE 80
 CMD ["httpd", "-D", "FOREGROUND"]
 ```
 
-#### 3️⃣ Build frontend image
+#### 3️. Build frontend image
 ```bash
 docker build . -t frontend-app 
 ```
-#### 4️⃣ Run frontend container
+#### 4️. Run frontend container
 ```bash
 docker run -d -p 80:80 frontend-app
 ```
@@ -199,7 +199,7 @@ docker run -d -p 80:80 frontend-app
 ```bash
 Open your browser and visit:
 http://<YOUR_EC2_PUBLIC_IP>
-You should now see your website live! 🎉
+You should now see your website live! 
 
 ```
 <img width="1905" height="1011" alt="Screenshot 2025-11-05 202951" src="https://github.com/user-attachments/assets/0c5709a0-835a-4fed-9b0a-8fb22ee4198d" />
@@ -208,31 +208,31 @@ You should now see your website live! 🎉
 
 ## To see data that saved in database
 
-**🔍 1. See All Databases**
+**1. See All Databases**
 ```bash
 SHOW DATABASES;
 ```
-**🔍 2. Select Your Database**
+**2. Select Your Database**
 ```bash
 USE student_db;
 ```
-**🔍 3. See All Tables**
+**3. See All Tables**
 ```bash
 SHOW TABLES;
 ```
-**🔍 4. View All Data in a Table**
+**4. View All Data in a Table**
 ```bash
 SELECT * FROM users;
 ```
 <img width="1486" height="420" alt="Screenshot 2025-11-05 203849" src="https://github.com/user-attachments/assets/ff4cc41f-c2a6-482e-bd3d-65b325188665" />
 
 
-## 🚀 Docker Hub: Commands to Save and Push Images
+##  Docker Hub: Commands to Save and Push Images
 
 Follow these steps to upload your Docker images to Docker Hub so you can access them from anywhere.  
 **Replace `<your-dockerhub-username>` and `<imagename>` as appropriate.**
 
-### 1️⃣ Tag Your Image with Docker Hub Repository Name
+### 1️. Tag Your Image with Docker Hub Repository Name
 
 **Backend Example:**
 ```bash
@@ -245,7 +245,7 @@ docker tag frontend-app <your-dockerhub-username>/frontend-app:latest
 ```
 ---
 
-### 2️⃣ Log In to Docker Hub
+### 2️. Log In to Docker Hub
 ```bash
 docker login
 ```
@@ -254,7 +254,7 @@ docker login
 
 ---
 
-### 3️⃣ Push Images to Docker Hub
+### 3️. Push Images to Docker Hub
 
 **Backend:**
 ```bash
@@ -268,7 +268,7 @@ docker push <your-dockerhub-username>/frontend-app:latest
 ```
 ---
 
-### 4️⃣ Verify Your Images on Docker Hub
+### 4️. Verify Your Images on Docker Hub
 
 - Go to [hub.docker.com](https://hub.docker.com/).
 - Log in and check the repositories under your username.  
