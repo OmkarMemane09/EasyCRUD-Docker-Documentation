@@ -6,3 +6,4 @@ RUN apk update && apk add apache2
 RUN cp -rf dist/* /var/www/localhost/htdocs/
 EXPOSE 80
 CMD ["httpd", "-D", "FOREGROUND"]
+We Can replace CMD with Enrtrypoint also like  ENTRYPOINT ["apachectl","-D","FOREGROUND"]
